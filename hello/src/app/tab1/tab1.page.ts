@@ -6,5 +6,14 @@ import { Component } from "@angular/core";
   styleUrls: ["tab1.page.scss"],
 })
 export class Tab1Page {
-  constructor() {}
+  valor1;
+  valor2;
+  resultado;
+  constructor() { }
+
+  somar() {
+
+    this.resultado = this.valor1 + this.valor2;
+    console.log(this.resultado);
+  }
 }
