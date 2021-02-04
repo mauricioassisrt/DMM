@@ -25,7 +25,6 @@ https://drive.google.com/file/d/1fh8vKIYHMfc0UI2TcCZMLPLqcZdDEl4O/view
 2 - Hello World TURBOURL
 Não concluído(s): 2 - Hello World TURBO<br>
 https://drive.google.com/file/d/1PCNi4lHbPgfqnwah7XraK5uDwiF91my1/view
-
 <br>
 3 - Apresentação do APP.<br>
 https://drive.google.com/file/d/1u85RGTR6bLtI7MyDtnSCQmlvoDQaux8G/view
