@@ -33,6 +33,14 @@ https://drive.google.com/file/d/1u85RGTR6bLtI7MyDtnSCQmlvoDQaux8G/view
 4 - Projeto Financeiro<br>
 https://drive.google.com/file/d/1WPllqK1DMZAjfjWQHbu72musi-eUzo_4/view
 <br>
+<b> criar projeto  ionic start financeirofacil tabs <br>
+    tabs é o template de tabs padrão <br>
+    escolher o frameworks para o front end<br>
+    deseja integrar com o framework nativo S ou N<br>
+    Após isso iniciará a instalação <br>
+    para excultar o app excute ionic serve -l o "L" serve para mostrar como um dispositivo no android ou iOS<br>
+    é necessário rodar o comando npm install @ionic/lab <br>
+ <b>
 5 - Tela Inicial<br>
 https://drive.google.com/file/d/1BtSHknN6OG67G173WVCjrvi0No_FHe4v/view
 <br>
