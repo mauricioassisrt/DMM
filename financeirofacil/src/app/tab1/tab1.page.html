@@ -1,17 +1,75 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      tabela 1
+     Financeiro Fácil
     </ion-title>
   </ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <center>
+            <ion-icon name="chevron-back-outline"></ion-icon>
+          </center>
+        </ion-col>
+        <ion-col>
+          <ion-col>
+            <center>
+          <ion-title>
+            Fevereiro 2021
+          </ion-title>
+        </center>
+        </ion-col>
+        </ion-col>
+        <ion-col>
+          <center>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+            </center>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">TABELA 1</ion-title>
+  <ion-header >
+    <ion-toolbar color="light">
+      <ion-text>
+        <center>
+          <h2>
+            Saldo do mês
+          </h2>
+        </center>
+      </ion-text>
+      <ion-text>
+        <center>
+          <h3>
+           R$ 200,00
+          </h3>
+        </center>
+      </ion-text>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="TABELA 1 "></app-explore-container>
+  <ion-card>
+    <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <h2>
+                Recebidos
+              </h2>
+            </ion-col>
+            <ion-col>
+              <h2>
+                R$ 200,00
+              </h2>
+             </ion-col>
+          </ion-row>
+
+        </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>
