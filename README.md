@@ -45,6 +45,7 @@ https://drive.google.com/file/d/1WPllqK1DMZAjfjWQHbu72musi-eUzo_4/view
 https://drive.google.com/file/d/1BtSHknN6OG67G173WVCjrvi0No_FHe4v/view
 <br>
 6 - Criação de Páginas e chamada<br>
+comando para criar uma nova página ionic g page recebidos
 https://drive.google.com/file/d/1tGteN7t3cM0YGY2K_o_848Us6rEYfbcs/view
 <br>
 7 - BackButton<br>
