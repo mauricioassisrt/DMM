@@ -7,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecebidosPage implements OnInit {
 
-  constructor() { }
 
+
+  constructor(public router:Router) {}
+   chamarFormulario(){
+    this.router.navigate(['recebidos/form']);
+   }
   ngOnInit() {
   }
 
