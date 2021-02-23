@@ -1,12 +1,43 @@
-<ion-header>
-  <ion-toolbar>
+<ion-header >
+  <ion-toolbar color="danger">
+
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>despesas</ion-title>
+    <ion-title>Despesas </ion-title>
+
   </ion-toolbar>
+
 </ion-header>
-
+<ion-toolbar color="danger">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <center>
+          <ion-icon name="chevron-back-outline"></ion-icon>
+        </center>
+      </ion-col>
+      <ion-col>
+        <ion-col>
+          <center>
+        <ion-title>
+          Fevereiro 2021
+        </ion-title>
+      </center>
+      </ion-col>
+      </ion-col>
+      <ion-col>
+        <center>
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+          </center>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-toolbar>
 <ion-content>
-
+  <ion-fab vertical="bottom"  horizontal="end" slot="fixed" (click)="chamarFormulario()">
+    <ion-fab-button color="danger">
+      <ion-icon name="add" ></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

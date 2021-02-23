@@ -9,7 +9,7 @@ const routes: Routes = [
     component: RecebidosPage
   }
 ];
-
+//
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
