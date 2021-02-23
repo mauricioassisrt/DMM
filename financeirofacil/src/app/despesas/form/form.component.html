@@ -28,9 +28,29 @@
   <ion-item>
     <ion-label>Gasto com </ion-label>
   </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Descrição</ion-label>
+    <ion-textarea></ion-textarea>
+  </ion-item>
+
+</ion-content>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Data da receita </ion-label>
+    <ion-datetime [(ngModel)]="lancamento.data" cancelText="Cancelar" doneText="Ok" max="2050-12-09" displayFormat="DD/MM/YYYY" placeholder="Selecione uma data"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Valor R$ </ion-label>
+    <ion-input type="number"  [(ngModel)]="lancamento.valorLancamento"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Gasto com </ion-label>
+  </ion-item>
   <ion-item>
 
-    <ion-select value="brown" okText="Okay" cancelText="Dismiss">
+    <ion-select value="brown" okText="Okay" cancelText="Dismiss"  [(ngModel)]="lancamento.categoria" >
       <ion-select-option value="alimentacao">Alimentação </ion-select-option>
       <ion-select-option value="mercado">Mercado</ion-select-option>
       <ion-select-option value="combus">Combustivel </ion-select-option>
@@ -39,9 +59,11 @@
 
     </ion-select>
   </ion-item>
+
   <ion-item>
     <ion-label position="floating">Descrição</ion-label>
-    <ion-textarea></ion-textarea>
+    <ion-textarea  [(ngModel)]="lancamento.descricao"></ion-textarea>
   </ion-item>
 
 </ion-content>
+

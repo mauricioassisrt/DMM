@@ -1,3 +1,5 @@
+import { ModalController } from '@ionic/angular';
+import { Lancamentos } from './../../model/lancamentos';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,9 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./form.component.scss'],
 })
 export class FormComponent implements OnInit {
-
-  constructor() { }
-
+  lancamento: Lancamentos;
+  constructor(public ModalController:ModalController) { }
   ngOnInit() {}
 
 }

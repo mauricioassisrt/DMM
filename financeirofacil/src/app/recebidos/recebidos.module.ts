@@ -1,3 +1,4 @@
+import { FormComponent } from './form/form.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -15,6 +16,7 @@ import { RecebidosPage } from './recebidos.page';
     IonicModule,
     RecebidosPageRoutingModule
   ],
-  declarations: [RecebidosPage]
+  declarations: [RecebidosPage,FormComponent],
+  entryComponents: [FormComponent]
 })
 export class RecebidosPageModule {}
