@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class Tab3Page {
 
-  constructor() {}
-
+  constructor(public router:Router) {}
+   chamarRecebidos(){
+    this.router.navigate(['recebidos']);
+   }
 }
