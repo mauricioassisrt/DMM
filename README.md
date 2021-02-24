@@ -68,17 +68,21 @@ https://drive.google.com/file/d/1PUGEOwljmVGdu_AZKoIZx6Y8e91CmuBk/view
 https://drive.google.com/file/d/16FJWwblZXynMchzN9EMP7hJH4IOPwGIn/view
 <br>
 13 - Criando uma classe de serviço<br>
-https://drive.google.com/file/d/1ogb7HD1lXNT6GqgTWTKNMjdidpOwdjdD/view
+https://drive.google.com/file/d/1ogb7HD1lXNT6GqgTWTKNMjdidpOwdjdD/view<br>
+comando para criar o service ionic g service services/lancamentos
 <br>
 14 - Implementação do service
 https://drive.google.com/file/d/1k6NyfGy1bfXsPyXKCKhg0dDQXxtpcQ2G/view
 <br>
+https://github.com/angular/angularfire repositorio para baixar no projeto <br>
+comando para instalar npm install @angular/fire 
 15 - Configuração do firebase<br>
 https://drive.google.com/file/d/1NP2slvm0aPzk-hR0xZ5diniEbe6xu3J0/view
 <br>
 16 - Correção de erros<br>
 https://drive.google.com/file/d/1LWsQfy86IeAKVikMtLh5wES7_qK8WBmd/view
 <br>
+Instalar o Firebase npm i firebase<br>
 17 - Salvar Lançamento<br>
 https://drive.google.com/file/d/1Lm6-jA3m8Xmsg3M8qOTQB4WP4igFfuDP/view
 <br>

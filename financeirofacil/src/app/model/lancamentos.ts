@@ -3,7 +3,7 @@ export class Lancamentos{
   descricao:string;
   valorLancamento:string;
   tipo:string;
-  data:string;
+  data:Date;
   categoria:string;
 
 }
