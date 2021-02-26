@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class FormComponent implements OnInit {
   lancamento: Lancamentos;
   constructor(public ModalController:ModalController) { }
+
   ngOnInit() {}
 
 }
