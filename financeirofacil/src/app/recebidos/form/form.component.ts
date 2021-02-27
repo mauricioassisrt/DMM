@@ -58,6 +58,12 @@ export class FormComponent implements OnInit {
     }
 
   }
+  excluirLancamento(){
+    if(this.key!=undefined){
+      this.lancamentoService.removerLancamento(this.key);
+      this.dismiss();
+    }
+  }
 
   dismiss() {
     this.ModalController.dismiss({
