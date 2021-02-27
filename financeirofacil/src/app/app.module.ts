@@ -15,12 +15,14 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { environment } from '../environments/environment';
 
+import { BrMaskerModule } from "br-mask";
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
+    BrMaskerModule,
     IonicModule.forRoot(),
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),

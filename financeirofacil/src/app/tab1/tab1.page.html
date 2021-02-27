@@ -8,23 +8,12 @@
         <ion-grid>
             <ion-row>
                 <ion-col align="center">
-
-                    <ion-icon name="chevron-back-outline"></ion-icon>
-
-                </ion-col>
-
-                <ion-col align="center">
-
-                    <ion-title>
-                        Fevereiro 2021
-                    </ion-title>
-
-                </ion-col>
-
-                <ion-col align="center">
-
-                    <ion-icon name="chevron-forward-outline"></ion-icon>
-
+                    <ion-col>
+                        <ion-title>
+                            <ion-datetime (ionChange)="selecionarMes()" monthNames="Janeiro, Fevereiro, Março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro" [(ngModel)]="mesAtual" cancelText="Cancelar" doneText="Ok" max="2050-12-09" displayFormat="MMMM/YYYY"
+                                placeholder="Selecione uma Data"></ion-datetime>
+                        </ion-title>
+                    </ion-col>
                 </ion-col>
             </ion-row>
         </ion-grid>
