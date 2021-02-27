@@ -43,6 +43,7 @@ export class RecebidosPage implements OnInit {
     return await modal.present();
   }
   async chamarFormulario() {
+    console.log('no chamar form receitas')
     const modal = await this.modalController.create({
       component: FormComponent
     });

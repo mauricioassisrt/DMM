@@ -1,6 +1,9 @@
-import { ModalController } from '@ionic/angular';
-import { FormComponent } from './../despesas/form/form.component';
+
+import { Lancamentos } from '../model/lancamentos';
+import { LancamentosService } from '../services/lancamentos.service';
+import { FormComponent } from './form/form.component';
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-despesas',
@@ -9,14 +12,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DespesasPage implements OnInit {
 
-  constructor(public modalController: ModalController) {}
-  async chamarFormulario() {
-    const modal = await this.modalController.create({
+  listaLancamentos = [];
+
+  constructor(public modalControll: ModalController, public lancamentoService:LancamentosService) { }
+
+  ngOnInit() {
+
+    let Lancamentos = this.lancamentoService.buscarTodos();
+    Lancamentos.snapshotChanges().subscribe(res => {
+      this.listaLancamentos = [];
+      res.forEach(item => {
+        let a = item.payload.toJSON();
+        // let mesSalvo = new Date(a['dataLacamento']).getMonth();
+        // let anoSalvo = new Date(a['dataLacamento']).getFullYear();
+        //  if (mesSelecionado == mesSalvo && anoSelecionado == anoSalvo && a['tipo']=='recebido') {
+        if (a['tipo'] == 'despesas') {
+          a['key'] = item.key;
+          this.listaLancamentos.push(a as Lancamentos);
+        }
+      })
+    })
+
+  }
+  async alterarLancamentos(key) {
+    const modal = await this.modalControll.create({
+      component: FormComponent,
+      componentProps: {
+        'key': key,
+      }
+    });
+    return await modal.present();
+  }
+  async chamarFormularios() {
+    console.log('despesas page.ts linha 47')
+    const modal = await this.modalControll.create({
       component: FormComponent
     });
     return await modal.present();
   }
-  ngOnInit() {
-  }
-
 }

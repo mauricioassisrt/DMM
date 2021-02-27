@@ -1,4 +1,4 @@
-import { FormComponent } from './../recebidos/form/form.component';
+import { FormComponent } from './form/form.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';

@@ -2,44 +2,23 @@
   <ion-toolbar color="danger">
 
     <ion-title>ADD Despesas </ion-title>
-    <ion-buttons slot="end">
-      <ion-button>
+    <ion-buttons slot="end" >
+      <ion-button (click)="excluirLancamento()">
         <ion-icon name="trash-outline"></ion-icon>
       </ion-button>
-      <ion-button>
-        <ion-icon name="save-outline"></ion-icon>
+      <ion-button (click)="salvarLancamento()">
+        <ion-icon name="save-outline" ></ion-icon>
       </ion-button>
-    </ion-buttons>
-
+      </ion-buttons>
+      
   </ion-toolbar>
 
 </ion-header>
 <ion-content>
   <ion-item>
     <ion-label position="floating">Data da despesa </ion-label>
-    <ion-datetime cancelText="Cancelar" doneText="Ok" max="2050-12-09" displayFormat="DD/MM/YYYY"
-      placeholder="Selecione uma data"></ion-datetime>
+    <ion-datetime cancelText="Cancelar" [(ngModel)]="lancamento.data" doneText="Ok" max="2050-12-09" displayFormat="DD/MM/YYYY" placeholder="Selecione uma data"></ion-datetime>
 
-  </ion-item>
-  <ion-item>
-    <ion-label position="floating">Valor R$ </ion-label>
-    <ion-input type="number" value=""></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>Gasto com </ion-label>
-  </ion-item>
-
-  <ion-item>
-    <ion-label position="floating">Descrição</ion-label>
-    <ion-textarea></ion-textarea>
-  </ion-item>
-
-</ion-content>
-
-<ion-content>
-  <ion-item>
-    <ion-label position="floating">Data da receita </ion-label>
-    <ion-datetime [(ngModel)]="lancamento.data" cancelText="Cancelar" doneText="Ok" max="2050-12-09" displayFormat="DD/MM/YYYY" placeholder="Selecione uma data"></ion-datetime>
   </ion-item>
   <ion-item>
     <ion-label position="floating">Valor R$ </ion-label>
@@ -59,11 +38,9 @@
 
     </ion-select>
   </ion-item>
-
   <ion-item>
     <ion-label position="floating">Descrição</ion-label>
-    <ion-textarea  [(ngModel)]="lancamento.descricao"></ion-textarea>
+    <ion-textarea [(ngModel)]="lancamento.descricao"></ion-textarea>
   </ion-item>
 
 </ion-content>
-

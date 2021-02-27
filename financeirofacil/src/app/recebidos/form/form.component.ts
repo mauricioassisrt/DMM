@@ -43,7 +43,7 @@ export class FormComponent implements OnInit {
         .then((res) => {
           console.log('no try');
           console.log(res);
-          this.dismiss
+          this.dismiss()
         })
         .catch((error) => console.log(error));
     } else {
