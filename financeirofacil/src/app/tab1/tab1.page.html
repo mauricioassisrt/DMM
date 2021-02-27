@@ -1,115 +1,95 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="primary">
-    <ion-title>
-     Financeiro Fácil
-    </ion-title>
-  </ion-toolbar>
-  <ion-toolbar color="primary">
-    <ion-grid>
-      <ion-row>
-        <ion-col>
+    <ion-toolbar color="primary">
+        <ion-title align="center">
+            Financeiro Fácil
+        </ion-title>
+    </ion-toolbar>
+    <ion-toolbar color="primary" align="center">
+        <ion-grid>
+            <ion-row>
+                <ion-col align="center">
 
-            <ion-icon name="chevron-back-outline"></ion-icon>
+                    <ion-icon name="chevron-back-outline"></ion-icon>
 
-        </ion-col>
-        <ion-col>
-          <ion-col>
+                </ion-col>
 
-          <ion-title>
-            Fevereiro 2021
-          </ion-title>
+                <ion-col align="center">
 
-        </ion-col>
-        </ion-col>
-        <ion-col>
+                    <ion-title>
+                        Fevereiro 2021
+                    </ion-title>
 
-          <ion-icon name="chevron-forward-outline"></ion-icon>
+                </ion-col>
 
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-toolbar>
+                <ion-col align="center">
+
+                    <ion-icon name="chevron-forward-outline"></ion-icon>
+
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-toolbar>
 
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header >
-    <ion-toolbar color="light">
-      <ion-text>
-    
-          <h2>
-            Saldo do mês
-          </h2>
-      </ion-text>
-      <ion-text>
-       
-          <h3>
-           R$ 200,00
-          </h3>
-        
-      </ion-text>
-    </ion-toolbar>
-  </ion-header>
+    <ion-header>
+        <ion-toolbar color="light" text-center>
+            <div align="center">
+                <ion-text>
 
-  <ion-card color="success" (click)="chamarRecebidos()">
-    <ion-card-content>
-        <ion-grid>
-          <ion-row>
-            <ion-col>
-              <h2>
-                Recebidos
-              </h2>
-            </ion-col>
-            <ion-col>
-              <h2>
-                R$ 200,00
-              </h2>
-             </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col>
-              <h3>
-                A receber
-              </h3>
-            </ion-col>
-            <ion-col>
-              <h2>
-                R$ 100,00
-              </h2>
-             </ion-col>
-          </ion-row>
-        </ion-grid>
-    </ion-card-content>
-  </ion-card>
+                    <h2>
+                        Saldo do mês
+                    </h2>
+                </ion-text>
+                <ion-text>
 
-  <ion-card color="danger" (click)="chamarDespesas()">
-    <ion-card-content>
-        <ion-grid>
-          <ion-row>
-            <ion-col>
-              <h3>
-                Despesas
-              </h3>
-            </ion-col>
-            <ion-col>
-              <h2>
-                R$ 100,00
-              </h2>
-             </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col>
-              <h3>
-                A Pagar
-              </h3>
-            </ion-col>
-            <ion-col>
-              <h2>
-                R$ 0,00
-              </h2>
-             </ion-col>
-          </ion-row>
-        </ion-grid>
-    </ion-card-content>
-  </ion-card>
+                    <h3>
+                        R$ {{ saldoMes }}
+                    </h3>
+
+                </ion-text>
+            </div>
+        </ion-toolbar>
+    </ion-header>
+
+    <ion-card color="success" (click)="chamarRecebidos()">
+        <ion-card-content>
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <h2>
+                            Recebidos
+                        </h2>
+                    </ion-col>
+                    <ion-col>
+                        <h2>
+                            R$ {{ valorRecebido }}
+                        </h2>
+                    </ion-col>
+                </ion-row>
+
+            </ion-grid>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-card color="danger" (click)="chamarDespesas()">
+        <ion-card-content>
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <h3>
+                            Despesas
+                        </h3>
+                    </ion-col>
+                    <ion-col>
+                        <h2>
+                            R$ {{ valorDespesa }}
+                        </h2>
+                    </ion-col>
+                </ion-row>
+
+            </ion-grid>
+        </ion-card-content>
+    </ion-card>
 </ion-content>
