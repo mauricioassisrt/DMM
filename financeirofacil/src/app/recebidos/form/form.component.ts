@@ -1,7 +1,7 @@
 import { ModalController } from '@ionic/angular';
 import { Lancamentos } from './../../model/lancamentos';
-import { Component, OnInit } from '@angular/core';
-import {LancamentosService} from '../../services/lancamentos.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { LancamentosService } from '../../services/lancamentos.service';
 
 @Component({
   selector: 'app-form',
@@ -10,30 +10,58 @@ import {LancamentosService} from '../../services/lancamentos.service';
 })
 export class FormComponent implements OnInit {
   lancamento: Lancamentos;
-  constructor(public ModalController:ModalController, public lancamentoService:LancamentosService) { }
+  constructor(
+    public ModalController: ModalController,
+    public lancamentoService: LancamentosService
+  ) {}
+  @Input() key: string;
 
   ngOnInit() {
-    this.lancamento={
-      key: '',
-      descricao:'',
-      valorLancamento: 0,
-      tipo:'recebido',
-      data:new Date(),
-      categoria:'Sálario',
-    };
-   
+    if (this.key != undefined) {
+      this.lancamentoService
+        .buscarPorId(this.key)
+        .valueChanges()
+        .subscribe((res) => {
+          this.lancamento = res;
+        });
+    } else {
+      this.lancamento = {
+        key: '',
+        descricao: '',
+        valorLancamento: 0,
+        tipo: 'recebido',
+        data: new Date(),
+        categoria: 'Sálario',
+      };
+    }
   }
 
-  salvarLancamento(){
-    this.lancamentoService.criarLancamento(this.lancamento).then(res => {
-      console.log('no try');
-      console.log(res);
-    }).catch(error=> console.log(error));
+  salvarLancamento() {
+    if (this.key == undefined) {
+      this.lancamentoService
+        .criarLancamento(this.lancamento)
+        .then((res) => {
+          console.log('no try');
+          console.log(res);
+          this.dismiss
+        })
+        .catch((error) => console.log(error));
+    } else {
+      this.lancamentoService
+        .atualizarLancamento(this.key, this.lancamento)
+        .then((res) => {
+          console.log('no try');
+          console.log(res);
+          this.dismiss();
+        })
+        .catch((error) => console.log(error));
+    }
+
   }
 
-  dismiss(){
+  dismiss() {
     this.ModalController.dismiss({
-      'dismissed':true
+      'dismissed': true,
     });
   }
 }

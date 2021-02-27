@@ -14,8 +14,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { environment } from '../environments/environment';
-import { registerLocaleData } from '@angular/common';
-import ptBr from '@angular/common/locales/pt';
+
 
 @NgModule({
   declarations: [AppComponent],
