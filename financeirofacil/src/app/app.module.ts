@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
@@ -16,6 +16,10 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 
 import { BrMaskerModule } from "br-mask";
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+
+import { AdMobFree } from '@ionic-native/admob-free/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,7 +35,15 @@ import { BrMaskerModule } from "br-mask";
     AngularFireDatabaseModule,
     AngularFireStorageModule,
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{
+    provide: RouteReuseStrategy, useClass: IonicRouteStrategy, StatusBar,
+    SplashScreen,
+    AdMobFree,
+
+
+
+  }, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy, },
+  { provide: LOCALE_ID, useValue: 'pt-BR' }],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

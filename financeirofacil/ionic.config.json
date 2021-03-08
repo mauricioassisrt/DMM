@@ -1,5 +1,7 @@
 {
   "name": "financeirofacil",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
