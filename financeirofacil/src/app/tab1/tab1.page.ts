@@ -13,6 +13,7 @@ import { AdmobService } from '../services/admob.service';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page implements OnInit {
+
   listaLancamentos = [];
   saldoMes = 0;
   valorRecebido = 0;
@@ -22,18 +23,22 @@ export class Tab1Page implements OnInit {
 
   constructor(private admobService: AdmobService,
 
-    private platform: Platform,
+
     public modalCtrl: ModalController,
-    private menu: MenuController,
-    private actionSheetCtrl: ActionSheetController,
-    private popoverCtrl: PopoverController,
+
     public router: Router,
-     public modalControll: ModalController,
-     public lancamentoService: LancamentosService) { }
+    public modalControll: ModalController,
+    public lancamentoService: LancamentosService) {
+
+      this.admobService.showBanner();
+
+
+
+  }
 
   ngOnInit() {
 
-
+    this.admobService.showBanner();
     let Lancamentos = this.lancamentoService.buscarTodos();
     Lancamentos.snapshotChanges().subscribe(res => {
       this.saldoMes = 0;
@@ -66,16 +71,16 @@ export class Tab1Page implements OnInit {
   selecionarMes() {
     this.ngOnInit();
   }
-  interstitial(){
-  this.admobService.showInterstitial();
+  interstitial() {
+    this.admobService.showInterstitial();
   }
 
-  banner(){
-  this.admobService.showBanner();
+  banner() {
+    this.admobService.showBanner();
   }
 
-  reward(){
-   this.admobService.showRewardVideo();
+  reward() {
+    this.admobService.showRewardVideo();
   }
 
 }

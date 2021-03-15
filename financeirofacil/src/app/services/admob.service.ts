@@ -13,7 +13,7 @@ export class AdmobService {
   bannerConfig: AdMobFreeBannerConfig = {
       isTesting: true, // Mantenha como true durante os testes.
       autoShow: true,//,
-   //   id: "ca-app-pub-4008016361810154~7154155383"
+     id: "ca-app-pub-4008016361810154~7154155383"
   };
 
   interstitialConfig: AdMobFreeInterstitialConfig = {
