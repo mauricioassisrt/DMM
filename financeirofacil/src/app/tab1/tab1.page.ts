@@ -5,15 +5,19 @@ import { Lancamentos } from './../model/lancamentos';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdmobService } from '../services/admob.service';
-
-
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+declare var google;
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page implements OnInit {
-
+  map: any;
+  marker: any;
+  latitude: any = "";
+  longitude: any = "";
+  timestamp: any = "";
   listaLancamentos = [];
   saldoMes = 0;
   valorRecebido = 0;
@@ -21,20 +25,45 @@ export class Tab1Page implements OnInit {
   valorDespesa = 0;
   valorPagar = 0;
 
-  constructor(private admobService: AdmobService,
-
-
+  constructor(private admobService: AdmobService, public platform: Platform, public geolocation: Geolocation,
     public modalCtrl: ModalController,
-
     public router: Router,
     public modalControll: ModalController,
     public lancamentoService: LancamentosService) {
 
-      this.admobService.showBanner();
+    this.admobService.showBanner();
 
-
-
+    this.platform.ready().then(() => {
+      var mapOptions = {
+        center: { lat: 23.23223, lng: 79.3822 },
+        zoom: 7
+      }
+      this.map = new google.maps.Map(document.getElementById("map"), mapOptions);
+      this.GetLocation();
+    })
   }
+  GetLocation() {
+    var ref = this;
+    let watch = this.geolocation.watchPosition();
+    watch.subscribe((position) => {
+      var gps = new google.maps.LatLng
+        (position.coords.latitude, position.coords.longitude);
+      if (ref.marker == null) {
+        ref.marker = new google.maps.Marker({
+          position: gps,
+          map: ref.map,
+          title: 'my position'
+        })
+      } else {
+        ref.marker.setPosition(gps);
+      }
+      ref.map.panTo(gps);
+      ref.latitude = position.coords.latitude.toString();
+      ref.longitude = position.coords.longitude.toString();
+      ref.timestamp = (new Date(position.timestamp)).toString();
+    })
+  }
+
 
   ngOnInit() {
 

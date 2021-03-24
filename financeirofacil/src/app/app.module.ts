@@ -19,8 +19,10 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { registerLocaleData } from '@angular/common';
 import ptBr from '@angular/common/locales/pt';
+
 import { HttpClientModule } from '@angular/common/http';
 import { AdMobFree } from '@ionic-native/admob-free/ngx';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 registerLocaleData(ptBr);
 
 
@@ -28,7 +30,7 @@ registerLocaleData(ptBr);
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
-     AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule.enablePersistence(),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
@@ -40,7 +42,8 @@ registerLocaleData(ptBr);
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy, },
-     { provide: LOCALE_ID, useValue: 'pt-BR' }
+    { provide: LOCALE_ID, useValue: 'pt-BR' },
+    Geolocation
   ],
   bootstrap: [AppComponent]
 })
