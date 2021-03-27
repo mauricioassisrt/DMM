@@ -9,7 +9,8 @@
         "build": "ng build",
         "test": "ng test",
         "lint": "ng lint",
-        "e2e": "ng e2e"
+        "e2e": "ng e2e",
+        "postinstall": "npx jetify"
     },
     "private": true,
     "dependencies": {
@@ -22,7 +23,6 @@
         "@angular/router": "~11.0.5",
         "@fullcalendar/angular": "^4.4.5-beta",
         "@ionic-native/admob-free": "^5.31.1",
-        "@ionic-native/admob-plus": "^5.31.1",
         "@ionic-native/core": "^5.31.1",
         "@ionic-native/geolocation": "^5.27.0",
         "@ionic-native/native-geocoder": "^4.20.0",
@@ -30,29 +30,38 @@
         "@ionic-native/status-bar": "^5.31.1",
         "@ionic/angular": "^5.6.1",
         "br-mask": "0.0.10",
+        "cordova-android": "9.0.0",
         "firebase": "^8.3.1",
+        "human-signals": "^2.1.0",
+        "node-properties-parser": "0.0.2",
+        "properties-parser": "^0.3.1",
         "rxjs": "~6.6.0",
         "rxjs-compat": "^6.6.6",
+        "strip-final-newline": "^2.0.0",
         "tslib": "^2.0.0",
         "zone.js": "~0.10.2"
     },
     "devDependencies": {
         "@angular-devkit/build-angular": "^0.1100.7",
+        "@angular-devkit/core": "^11.2.6",
+        "@angular-devkit/schematics": "^11.2.6",
         "@angular/cli": "11.0.7",
         "@angular/compiler": "~11.0.5",
         "@angular/compiler-cli": "~11.0.5",
         "@angular/language-service": "~11.0.5",
         "@ionic/angular-toolkit": "^3.1.1",
         "@ionic/lab": "3.2.10",
+        "@schematics/angular": "^11.2.6",
         "@types/jasmine": "^3.6.7",
         "@types/jasminewd2": "~2.0.3",
         "@types/node": "^12.20.6",
         "codelyzer": "^6.0.0",
-        "cordova-admob-plus": "^0.42.0",
         "cordova-admob-sdk": "^0.24.1",
-        "cordova-android": "^9.0.0",
+        "cordova-browser": "^6.0.0",
         "cordova-plugin-add-swift-support": "^2.0.2",
         "cordova-plugin-admob-free": "^0.27.0",
+        "cordova-plugin-androidx": "^3.0.0",
+        "cordova-plugin-androidx-adapter": "^1.1.3",
         "cordova-plugin-console": "^1.1.0",
         "cordova-plugin-device": "^2.0.3",
         "cordova-plugin-geolocation": "^4.1.0",
@@ -65,6 +74,7 @@
         "cordova-promise-polyfill": "0.0.2",
         "jasmine-core": "~3.6.0",
         "jasmine-spec-reporter": "~5.0.0",
+        "jetifier": "^1.6.6",
         "karma": "~5.1.0",
         "karma-chrome-launcher": "~3.1.0",
         "karma-coverage": "~2.0.3",
@@ -82,10 +92,6 @@
             "cordova-plugin-admob-free": {
                 "ADMOB_APP_ID": "ca-app-pub-4008016361810154/1901828704"
             },
-            "cordova-admob-plus": {
-                "APP_ID_ANDROID": "test",
-                "PLAY_SERVICES_VERSION": "19.5.0"
-            },
             "cordova-plugin-splashscreen": {},
             "cordova-plugin-whitelist": {},
             "cordova-plugin-statusbar": {},
@@ -97,9 +103,12 @@
             "cordova-plugin-nativegeocoder": {},
             "cordova-plugin-geolocation": {
                 "GPS_REQUIRED": "true"
-            }
+            },
+            "cordova-plugin-androidx": {},
+            "cordova-plugin-androidx-adapter": {}
         },
         "platforms": [
+            "browser",
             "android"
         ]
     }
