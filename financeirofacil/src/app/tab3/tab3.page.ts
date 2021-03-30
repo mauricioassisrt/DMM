@@ -14,7 +14,11 @@ import {
 })
 export class Tab3Page {
   reverseGeocondingResults: string = "";
-
+  thoroughfare:string=""
+  informacao:string ="";
+  informacao2:string="";
+  sub:string="";
+  cep:string="";
   map: any;
   marker: any;
   latitude: any = "";
@@ -50,8 +54,17 @@ export class Tab3Page {
       maxResults: 1,
     }
     this.goocoder.reverseGeocode(latitude, longitude, options)
-    .then((result: NativeGeocoderResult[]) =>this.reverseGeocondingResults  = (JSON.stringify(result[0])))
-
+    .then((result: NativeGeocoderResult[])=>this.reverseGeocondingResults  = (JSON.stringify(result[0])))
+    this.goocoder.reverseGeocode(latitude, longitude, options)
+    .then((result: NativeGeocoderResult[])=>this.informacao  = (JSON.stringify(result[0].administrativeArea)))
+    this.goocoder.reverseGeocode(latitude, longitude, options)
+    .then((result: NativeGeocoderResult[])=>this.informacao2  = (JSON.stringify(result[0].countryName)))
+    this.goocoder.reverseGeocode(latitude, longitude, options)
+    .then((result: NativeGeocoderResult[])=>this.cep  = (JSON.stringify(result[0].postalCode)))
+    this.goocoder.reverseGeocode(latitude, longitude, options)
+    .then((result: NativeGeocoderResult[])=>this.sub  = (JSON.stringify(result[0].subAdministrativeArea)))
+    this.goocoder.reverseGeocode(latitude, longitude, options)
+    .then((result: NativeGeocoderResult[])=>this.thoroughfare  = (JSON.stringify(result[0].thoroughfare)))
     .catch((error: any) => console.log(error));
 
   }

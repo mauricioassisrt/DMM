@@ -1,24 +1,37 @@
 <ion-header [translucent]="true">
-    <ion-toolbar>
-        <ion-title>
-            <ion-icon name="location-outline"></ion-icon> MAPS
-        </ion-title>
-    </ion-toolbar>
+  <ion-toolbar>
+    <ion-title>
+      <ion-icon name="location-outline"></ion-icon> MAPS
+    </ion-title>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <div class="ion-no-padding">
+  <div class="ion-no-padding">
 
-    </div>
-    <ion-card>
-        <ion-item>
-            <ion-icon name="walk" slot="start"></ion-icon>
-            <ion-label> {{reverseGeocondingResults}}</ion-label>
-        </ion-item>
-        <ion-item>
-            <ion-icon name="home-outline"></ion-icon>
-            <ion-label> {{reverseGeocondingResults}}</ion-label>
-        </ion-item>
-    </ion-card>
-    <div id="map" style="width:100%; height:60%"> </div>
+  </div>
+  <ion-card>
+    <ion-item>
+
+      <ion-label> Cidade {{sub}}</ion-label>
+    </ion-item>
+    <ion-item>
+
+      <ion-label> Rua  {{thoroughfare}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+
+      <ion-label> Cep {{cep}}</ion-label>
+    </ion-item>
+    <ion-item>
+
+      <ion-label>País {{informacao2}}</ion-label>
+    </ion-item>
+    <ion-item>
+
+      <ion-label> Estado {{informacao}}</ion-label>
+    </ion-item>
+  </ion-card>
+  <div id="map" style="width:100%; height:60%"> </div>
 </ion-content>
