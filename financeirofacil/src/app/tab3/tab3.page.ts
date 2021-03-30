@@ -15,6 +15,10 @@ import {
 export class Tab3Page {
   reverseGeocondingResults: string = "";
 
+  map: any;
+  marker: any;
+  latitude: any = "";
+  longitude: any = "";
   constructor(
     public platform: Platform,
     public geolocation: Geolocation,
@@ -29,6 +33,16 @@ export class Tab3Page {
         console.log("LATITUDE ",latitude);
       })
     })
+    this.platform.ready().then(() => {
+      var mapOptions = {
+        center: { lat: this.latitude.toString(), lng: this.longitude.toString() },
+        zoom: 7,
+      }
+      this.map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+    })
+
+    this.GetLocation();
   }
   ReverseGeocoding(latitude, longitude) {
     var options: NativeGeocoderOptions = {
@@ -42,4 +56,26 @@ export class Tab3Page {
 
   }
 
+  GetLocation() {
+    var ref = this;
+    let watch = this.geolocation.watchPosition();
+    watch.subscribe((position) => {
+      var gps = new google.maps.LatLng
+        (position.coords.latitude, position.coords.longitude);
+      if (ref.marker == null) {
+        ref.marker = new google.maps.Marker({
+          position: gps,
+          map: ref.map,
+          title: 'my position'
+        })
+      } else {
+        ref.marker.setPosition(gps);
+      }
+      ref.map.panTo(gps);
+      ref.latitude = position.coords.latitude.toString();
+      ref.longitude = position.coords.longitude.toString();
+
+    })
+
+  }
 }
