@@ -1,3 +1,4 @@
+import { GoogleMapComponent } from './../google-map/google-map.component';
 
 import { LancamentosService } from './../services/lancamentos.service';
 import { ActionSheetController, MenuController, ModalController, Platform, PopoverController } from '@ionic/angular';
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdmobService } from '../services/admob.service';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { NativeGeocoder, NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
+
+
 declare var google;
 @Component({
   selector: 'app-tab1',
@@ -13,6 +17,7 @@ declare var google;
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page implements OnInit {
+  reverseGeocondingResults: string = "";
   map: any;
   marker: any;
   latitude: any = "";
@@ -25,7 +30,11 @@ export class Tab1Page implements OnInit {
   valorDespesa = 0;
   valorPagar = 0;
 
-  constructor(private admobService: AdmobService, public platform: Platform, public geolocation: Geolocation,
+  constructor(
+    private admobService: AdmobService,
+    public platform: Platform,
+    public geolocation: Geolocation,
+    public goocoder: NativeGeocoder,
     public modalCtrl: ModalController,
     public router: Router,
     public modalControll: ModalController,
@@ -35,13 +44,16 @@ export class Tab1Page implements OnInit {
 
     this.platform.ready().then(() => {
       var mapOptions = {
-        center: { lat: 23.23223, lng: 79.3822 },
-        zoom: 7
+        center: { lat: this.latitude.toString(), lng: this.longitude.toString() },
+        zoom: 7,
       }
       this.map = new google.maps.Map(document.getElementById("map"), mapOptions);
-      this.GetLocation();
+
     })
+
+    this.GetLocation();
   }
+
   GetLocation() {
     var ref = this;
     let watch = this.geolocation.watchPosition();
@@ -60,10 +72,12 @@ export class Tab1Page implements OnInit {
       ref.map.panTo(gps);
       ref.latitude = position.coords.latitude.toString();
       ref.longitude = position.coords.longitude.toString();
-      ref.timestamp = (new Date(position.timestamp)).toString();
-    })
-  }
 
+      ref.timestamp = (new Date(position.timestamp)).toString();
+
+    })
+
+  }
 
   ngOnInit() {
 
@@ -96,6 +110,13 @@ export class Tab1Page implements OnInit {
   }
   chamarDespesas() {
     this.router.navigate(['despesas']);
+  }
+  async chamaMap() {
+    console.log('MAPS linha 102')
+    const modal = await this.modalControll.create({
+      component: GoogleMapComponent
+    });
+    return await modal.present();
   }
   selecionarMes() {
     this.ngOnInit();
